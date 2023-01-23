@@ -216,6 +216,12 @@ namespace RTC
 				RTC::StunPacket* response = packet->CreateSuccessResponse();
 
 				// Add XOR-MAPPED-ADDRESS.
+				std::string addr = this->listener->GetAnnouncedIP();
+				struct sockaddr_in *remote_addr_in = (struct sockaddr_in *)tuple->GetRemoteAddress();
+				char *remoteAddr = inet_ntoa(remote_addr_in->sin_addr);
+				struct sockaddr_in *local_addr_in = (struct sockaddr_in *)tuple->GetLocalAddress();
+				char *localAddr = inet_ntoa(local_addr_in->sin_addr);
+				MS_WARN_TAG(ice, "Abhinav GetAnnouncedIP: %s remoteAddr=%s localAddr=%s", addr.c_str(), remoteAddr, localAddr);
 				response->SetXorMappedAddress(tuple->GetRemoteAddress());
 
 				// Authenticate the response.

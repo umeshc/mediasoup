@@ -131,6 +131,7 @@ namespace RTC
 		void OnIceServerConnected(const RTC::IceServer* iceServer) override;
 		void OnIceServerCompleted(const RTC::IceServer* iceServer) override;
 		void OnIceServerDisconnected(const RTC::IceServer* iceServer) override;
+		std::string GetAnnouncedIP() override;
 
 		/* Pure virtual methods inherited from RTC::DtlsTransport::Listener. */
 	public:

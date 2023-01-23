@@ -1499,4 +1499,9 @@ namespace RTC
 		// Pass it to the parent transport.
 		RTC::Transport::ReceiveSctpData(data, len);
 	}
+
+	inline std::string WebRtcTransport::GetAnnouncedIP()
+	{
+		return this->udpSockets.begin()->second;
+	}
 } // namespace RTC

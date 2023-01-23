@@ -45,6 +45,7 @@ namespace RTC
 			virtual void OnIceServerConnected(const RTC::IceServer* iceServer)    = 0;
 			virtual void OnIceServerCompleted(const RTC::IceServer* iceServer)    = 0;
 			virtual void OnIceServerDisconnected(const RTC::IceServer* iceServer) = 0;
+			virtual std::string GetAnnouncedIP() = 0;
 		};
 
 	public:
